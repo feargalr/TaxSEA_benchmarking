@@ -30,14 +30,16 @@ microbe_set_input = set([
     'Pseudidiomarina', 'Pseudoalteromonas'
 ])
 
-# Perform enrichment analysis on the sample set
+# Perform enrichment analysis on the test taxa
 result = msea.enrich(microbe_set_input, d_gmt=d_gmt, universe=1000)
 print(result)
 print("---------------------------------------------------------------------------------------")
 
+
+
 # HMP study: Test for depletion among decreased taxa
 hmp_decreased_taxa = set([
-    'Ruminococcus torques', 'Ruminococcus bromii', 
+    'Ruminococcus torques', 'Ruminococcus bromii', 'Rosburia hominis', 
     'Firmicutes bacterium CAG 83', 'Roseburia sp CAG 182'
 ])
 hmp_result = msea.enrich(hmp_decreased_taxa, d_gmt=d_gmt, universe=1000)
@@ -45,59 +47,45 @@ print("HMP Study - Depleted Sets:")
 print(hmp_result)
 print("---------------------------------------------------------------------------------------")
 
-# Hall study: Test for depletion among decreased taxa
-hall_decreased_taxa = set([
-    'Roseburia hominis', 'Alistipes putredinis', 'Eubacterium rectale', 
-    'Fusicatenibacter saccharivorans', 'Agathobaculum butyriciproducens', 
-    'Anaerostipes hadrus', 'Collinsella aerofaciens', 'Alistipes finegoldii',
-    # ... (other taxa omitted for brevity)
+# Qin study: Test for depletion among decreased taxa
+Qin_decreased_taxa = set([
+    'Roseburia intestinalis', 'Haemophilus parainfluenzae', 'Anaerostipes hadrus', 
+    'Prevotella stercorea', 'Clostridium sp CAG 299', 'Agathobaculum butyriciproducens',
+    'Roseburia inulinivorans', 'Veillonella dispar', 'Ruminococcus callidus',
+    'Faecalibacterium prausnitzii', 'Prevotella sp CAG 520', 'Citrobacter freundii',
+    'Actinomyces sp ICM47', 'Citrobacter portucalensis', 'Alistipes finegoldii'
 ])
-hall_result = msea.enrich(hall_decreased_taxa, d_gmt=d_gmt, universe=1000)
-print("Hall Study - Depleted Sets:")
-print(hall_result)
+Qin_result = msea.enrich(Qin_decreased_taxa, d_gmt=d_gmt, universe=1000)
+print("Qin Study - Depleted Sets:")
+print(Qin_result)
 print("---------------------------------------------------------------------------------------")
 
-# Ijaz study: Test for enrichment among increased taxa
-ijaz_increased_taxa = set([
-    'Eggerthella lenta', 'Klebsiella pneumoniae', 'Klebsiella variicola', 
-    'Klebsiella quasipneumoniae', 'Eisenbergiella tayi',
-    # ... (other taxa omitted for brevity)
+# Qin study: Test for depletion among increased taxa
+Qin_increased_taxa = set([
+    'Acidaminococcus_sp_CAG_542', 'Lactobacillus_amylovorus', 'Christensenella_minuta', 
+    'Bifidobacterium_breve', 'Dielma_fastidiosa', 'Clostridium_aldenense', 
+    'Olsenella_scatoligenes', 'Aeriscardovia_aeriphila', 'Anaerotruncus_colihominis', 
+    'Clostridium_asparagiforme', 'Streptococcus_anginosus_group', 'Eisenbergiella_tayi', 
+    'Enorma_massiliensis', 'Lawsonibacter_asaccharolyticus', 'Alistipes_indistinctus', 
+    'Coprobacillus_cateniformis', 'Gordonibacter_pamelaeae', 'Clostridium_symbiosum', 
+    'Clostridium_bolteae', 'Lactobacillus_mucosae', 'Clostridium_innocuum', 
+    'Ruthenibacterium_lactatiformans', 'Intestinimonas_butyriciproducens', 
+    'Clostridium_citroniae', 'Hungatella_hathewayi', 'Erysipelatoclostridium_ramosum'
 ])
-ijaz_increased_result = msea.enrich(ijaz_increased_taxa, d_gmt=d_gmt, universe=1000)
-print("Ijaz Study - Enriched Sets:")
-print(ijaz_increased_result)
+
+Qin_result = msea.enrich(Qin_increased_taxa, d_gmt=d_gmt, universe=1000)
+print("Qin Study - Enriched Sets:")
+print(Qin_result)
 print("---------------------------------------------------------------------------------------")
 
-# Ijaz study: Test for depletion among decreased taxa
-ijaz_decreased_taxa = set([
-    'Fusicatenibacter saccharivorans', 'Bifidobacterium longum', 
-    'Collinsella aerofaciens', 'Ruminococcus torques', 
-    'Anaerostipes hadrus', 'Agathobaculum butyriciproducens',
-    # ... (other taxa omitted for brevity)
-])
-ijaz_decreased_result = msea.enrich(ijaz_decreased_taxa, d_gmt=d_gmt, universe=1000)
-print("Ijaz Study - Depleted Sets:")
-print(ijaz_decreased_result)
-print("---------------------------------------------------------------------------------------")
 
-# Nielson study: Test for enrichment among increased taxa
-nielson_increased_taxa = set([
-    'Bacteroides coprocola', 'Bacteroides stercoris', 'Collinsella intestinalis', 
-    'Bifidobacterium bifidum', 'Olsenella scatoligenes',
-    # ... (other taxa omitted for brevity)
-])
-nielson_increased_result = msea.enrich(nielson_increased_taxa, d_gmt=d_gmt, universe=1000)
-print("Nielson Study - Enriched Sets:")
-print(nielson_increased_result)
-print("---------------------------------------------------------------------------------------")
 
-# Nielson study: Test for depletion among decreased taxa
-nielson_decreased_taxa = set([
-    'Roseburia faecis', 'Butyrivibrio crossotus', 'Ruminococcus bromii', 
-    'Faecalibacterium prausnitzii', 'Alistipes putredinis',
-    # ... (other taxa omitted for brevity)
-])
-nielson_decreased_result = msea.enrich(nielson_decreased_taxa, d_gmt=d_gmt, universe=1000)
-print("Nielson Study - Depleted Sets:")
-print(nielson_decreased_result)
-print("---------------------------------------------------------------------------------------")
+
+
+
+
+
+
+
+
+
